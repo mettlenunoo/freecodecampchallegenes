@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vowel Balance Challenge</title>
 </head>
 <body>
+    <h1>Vowel Balance Challenge</h1>
+    <p>
+        <strong>Question:</strong><br>
+        Given a string, determine whether the number of vowels in the first half of the string is equal to the number of vowels in the second half.
+    </p>
+    <p>
+        The string can contain any characters.<br>
+        The letters <strong>a, e, i, o,</strong> and <strong>u</strong>, in either uppercase or lowercase, are considered vowels.<br>
+        If there's an odd number of characters in the string, ignore the center character.
+    </p>
+    <h2>Steps to Solve:</h2>
+    <ol>
+        <li>Define the vowel set: <code>a, e, i, o, u</code> (treat upper/lower the same).</li>
+        <li>Measure the string length <code>n</code>. Compute <code>mid = floor(n / 2)</code>.</li>
+        <li>
+            If <code>n</code> is even: left half = <code>s[0..mid-1]</code>, right half = <code>s[mid..n-1]</code>.<br>
+            If <code>n</code> is odd: ignore the center character — left = <code>s[0..mid-1]</code>, right = <code>s[mid+1..n-1]</code>.
+        </li>
+        <li>Count vowels in left and in right (case-insensitive).</li>
+        <li>Compare counts — equal → halves have same number of vowels.</li>
+    </ol>
+    <h2>Tests</h2>
+    <ul>
+        <li><code>isBalanced("racecar")</code> <em>// should return true.</em></li>
+        <li><code>isBalanced("Lorem Ipsum")</code> <em>// should return true.</em></li>
+        <li><code>isBalanced("Kitty Ipsum")</code> <em>// should return false.</em></li>
+        <li><code>isBalanced("string")</code> <em>// should return false.</em></li>
+        <li><code>isBalanced("")</code> <em>// should return true.</em></li>
+        <li><code>isBalanced("abcdefghijklmnopqrstuvwxyz")</code> <em>// should return false.</em></li>
+        <li><code>isBalanced("123A#b!E&*456-o.U")</code> <em>// should return true.</em></li>
+    </ul>
     <script src="main.js"></script>
 </body>
-
 </html>
